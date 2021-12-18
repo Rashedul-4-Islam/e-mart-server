@@ -35,6 +35,11 @@ client.connect(err => {
     });
 
     // insert user order data
+    app.post("/products",(req,res)=>{
+      productsCollection.insertOne(req.body).then((result)=>{
+           res.send(result);
+      })
+    }) 
     app.post("/myorders",(req,res)=>{
       ordersCollection.insertOne(req.body).then((result)=>{
            res.send(result);
